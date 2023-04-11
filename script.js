@@ -32,7 +32,7 @@ async function getJokes() {
             joke = data.joke;
         }
             console.log(joke);
-            console.log(data);
+            // console.log(data);
     } catch (error) {
         // Catch error here
         console.log('oops', error);
