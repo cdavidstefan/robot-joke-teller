@@ -2,6 +2,8 @@ const button = document.getElementById('button');
 const audioElement = document.getElementById('audio');
 
 
+// This would also work if we import voiceRSS from another file like voice.js that cointains const VoiceRSS, as long as it's loaded before the script.js file (initially), but because we call voiceRSS.speech inside the tellMe() function this works even if we load the voice.js file before the script file. (the speech function doesn't run before we press the button) so we get no error. cool
+
 // VoiceRSS Javascript SDK
 const VoiceRSS={speech:function(e){this._validate(e),this._request(e)},_validate:function(e){
     if(!e)throw"The settings are undefined";
@@ -24,7 +26,7 @@ function toggleButton() {
 
 // Passing our joke to our voiceRSS api
 function tellMe(joke) {
-    console.log('tell me:', joke);
+            console.log('tell me:', joke);
     VoiceRSS.speech({
         key: 'cb59478b325a41218ebdc1f89e314cf1',
         src: joke,
@@ -49,11 +51,11 @@ async function getJokes() {
         } else {
             joke = data.joke;
         }
-        // text-to-speech
+            // text-to-speech
         tellMe(joke);
-        // Disable the button
+            // Disable the button
         toggleButton();
-        // console.log(data);
+                // console.log(data);
     } catch (error) {
         // Catch error here
         console.log('oops', error);
